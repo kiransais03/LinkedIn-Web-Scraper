@@ -13,7 +13,7 @@ app.use(cors({origin:"*"}));
 
 app.get('/',async (req,res)=>{
     res.status(200).send(
-        "<h1>For LinkedIn Data Scraping call POST API 'www.localhost:8080/getdata' with Body as Array of Company Names like ['Google','Dell']</h1>")
+        "<h1>For LinkedIn Data Scraping call POST API 'https://linkedin-web-scraper-backend.onrender.com/getdata' with Body as Array of Company Names like ['Google','Dell']</h1>")
 })
 
 app.post('/getdata',(req,res)=>{
