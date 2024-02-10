@@ -12,13 +12,26 @@ app.use(express.json());
 app.use(cors({origin:"*"}));
 
 app.get('/',async (req,res)=>{
+    // await browsepage()
     res.status(200).send(
-        "<h1>For LinkedIn Data Scraping call POST API 'https://linkedin-web-scraper-backend.onrender.com/getdata' with Body as Array of Company Names like ['Google','Dell']</h1>")
+        "<h1>For LinkedIn Data Scraping call POST API 'https://linkedin-web-scraper-backend.onrender.com/senddata' with Body as Array of Company Names like ['Google','Dell']</h1>")
 })
 
-app.post('/getdata',(req,res)=>{
+
+app.post('/senddata',async (req,res)=>{
     let {namesarr} = req.body;
     console.log(namesarr);
+
+    res.status(200).send({
+        status : 200,
+        message : "Data received"
+    })
+
+    browsepage(namesarr)
+})
+
+
+app.get('/getdata',async (req,res)=>{
 
     const createCsvWriter = require('csv-writer').createObjectCsvWriter;
     const csvWriter = createCsvWriter({
