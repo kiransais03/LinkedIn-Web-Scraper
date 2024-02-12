@@ -7,8 +7,6 @@ async function browsepage (namesarr) {
   const page = await browser.newPage();
   
   await page.goto('https://www.linkedin.com/login');
-  // await page.type('#username', 'kiransais03@gmail.com');
-  // await page.type('#password', 'gottikadu123');
   const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
   await delay(40*1000);
